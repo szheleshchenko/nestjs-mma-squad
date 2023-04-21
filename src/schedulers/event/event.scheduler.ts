@@ -1,11 +1,10 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Cron, CronExpression } from '@nestjs/schedule';
 import { EventWebScrapperService } from 'src/core/abstracts/web-scrapper';
 
 @Injectable()
 export class EventScheduler {
-  private readonly logger = new Logger(EventScheduler.name);
   constructor(
     private configService: ConfigService,
     private eventWebScrapper: EventWebScrapperService
