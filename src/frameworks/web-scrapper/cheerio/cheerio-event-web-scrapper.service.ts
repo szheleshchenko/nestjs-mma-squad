@@ -1,3 +1,4 @@
+import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import * as cheerio from 'cheerio';
 import { Event } from 'src/core';
@@ -5,6 +6,12 @@ import { EventWebScrapperService } from 'src/core/abstracts/web-scrapper';
 
 @Injectable()
 export class CheerioEventWebScrapperService extends EventWebScrapperService {
+  constructor(
+    httpService: HttpService
+  ) {
+    super(httpService);
+  }
+  
   public extract(html: string): Event {
     // TODO: Add functionality
     return cheerio.load(html);
