@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
 import { AppController } from './controllers/app.controller';
+import { DatabaseModule } from './frameworks/database/database.module';
 import { WebScrapperModule } from './frameworks/web-scrapper/web-scrapper.module';
 import { SchedulersModule } from './schedulers/schedulers.module';
 
@@ -15,7 +16,8 @@ import { SchedulersModule } from './schedulers/schedulers.module';
       isGlobal: true
     }),
     WebScrapperModule,
-    SchedulersModule
+    SchedulersModule,
+    DatabaseModule
   ],
   controllers: [AppController],
 })
