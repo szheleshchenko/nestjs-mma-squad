@@ -5,17 +5,16 @@ import { Fighter } from './fighter';
 
 export type FightDocument = Fight & Document;
 
-// TODO: Mock
 @Schema()
 export class Fight {
   @Prop({ required: true })
-  id: number;
+  public id: number;
 
   @Prop({ required: true })
-  event: Event;
+  public event: Event;
 
   @Prop({ required: true })
-  fighters: Array<Fighter>;
+  public fighters: Array<Fighter>;
 }
 
 export const FightSchema = SchemaFactory.createForClass(Fight);

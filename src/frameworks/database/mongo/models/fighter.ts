@@ -12,34 +12,34 @@ type Record = {
 @Schema()
 export class Fighter {
   @Prop({ required: true })
-  id: number;
+  public id: number;
 
   @Prop({ required: true })
-  name: string;
+  public name: string;
 
   @Prop({ required: true })
-  record: Record;
+  public record: Record;
 
   @Prop({ required: true })
-  gender: 'male' | 'female';
+  public gender: 'male' | 'female';
 
   @Prop()
-  birthDate: string;
+  public birthDate: string;
 
   @Prop()
-  country: string;
+  public country: string;
 
   @Prop()
-  nickname: string;
+  public nickname: string;
 
   @Prop()
-  height: number;
+  public height: number;
 
   @Prop()
-  weight: number;
+  public weight: number;
 
   @Prop()
-  reach: number;
+  public reach: number;
 }
 
 export const FighterSchema = SchemaFactory.createForClass(Fighter);
