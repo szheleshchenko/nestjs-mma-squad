@@ -7,22 +7,16 @@ export type EventDocument = Event & Document;
 @Schema()
 export class Event {
   @Prop({ required: true })
+  id: number;
+
+  @Prop({ required: true })
   name: string;
 
   @Prop({ required: true })
-  weightClass: string;
+  date: string;
 
   @Prop({ required: true })
-  record: string;
-
-  @Prop({ required: true })
-  height: string;
-
-  @Prop({ required: true })
-  reach: string;
-
-  @Prop({ required: true })
-  stance: string;
+  venue: string;
 }
 
 export const EventSchema = SchemaFactory.createForClass(Event);
