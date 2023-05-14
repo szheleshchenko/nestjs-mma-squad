@@ -3,26 +3,43 @@ import { Document } from 'mongoose';
 
 export type FighterDocument = Fighter & Document;
 
-// TODO: Mock
+type Record = {
+  wins: number;
+  draws: number;
+  losses: number;
+};
+
 @Schema()
 export class Fighter {
   @Prop({ required: true })
-  name: string;
+  public id: number;
 
   @Prop({ required: true })
-  weightClass: string;
+  public name: string;
 
   @Prop({ required: true })
-  record: string;
+  public record: Record;
 
   @Prop({ required: true })
-  height: string;
+  public gender: 'male' | 'female';
 
-  @Prop({ required: true })
-  reach: string;
+  @Prop()
+  public birthDate: string;
 
-  @Prop({ required: true })
-  stance: string;
+  @Prop()
+  public country: string;
+
+  @Prop()
+  public nickname: string;
+
+  @Prop()
+  public height: number;
+
+  @Prop()
+  public weight: number;
+
+  @Prop()
+  public reach: number;
 }
 
 export const FighterSchema = SchemaFactory.createForClass(Fighter);

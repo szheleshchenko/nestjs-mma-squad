@@ -3,26 +3,19 @@ import { Document } from 'mongoose';
 
 export type EventDocument = Event & Document;
 
-// TODO: Mock
 @Schema()
 export class Event {
   @Prop({ required: true })
-  name: string;
+  public id: number;
 
   @Prop({ required: true })
-  weightClass: string;
+  public name: string;
 
   @Prop({ required: true })
-  record: string;
+  public date: string;
 
   @Prop({ required: true })
-  height: string;
-
-  @Prop({ required: true })
-  reach: string;
-
-  @Prop({ required: true })
-  stance: string;
+  public venue: string;
 }
 
 export const EventSchema = SchemaFactory.createForClass(Event);
