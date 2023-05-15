@@ -16,6 +16,9 @@ export class Event {
 
   @Prop({ required: true })
   public venue: string;
+
+  @Prop({ required: true })
+  public sherdogUrl: string;
 }
 
 export const EventSchema = SchemaFactory.createForClass(Event);
