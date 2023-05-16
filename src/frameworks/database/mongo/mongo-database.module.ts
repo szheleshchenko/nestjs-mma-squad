@@ -1,28 +1,31 @@
 import { Module } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Fighter } from 'src/core';
 import { DatabaseService } from 'src/core/abstracts/database';
-import { Event, EventSchema, FighterSchema } from './models';
+import {
+  Event,
+  EventSchema,
+  Fight,
+  FightSchema,
+  FighterSchema
+} from './models';
 import { MongoDatabaseService } from './mongo-database.service';
 
 @Module({
   imports: [
+    ConfigModule,
     MongooseModule.forFeature([
       { name: Fighter.name, schema: FighterSchema },
-      { name: Event.name, schema: EventSchema }
+      { name: Event.name, schema: EventSchema },
+      { name: Fight.name, schema: FightSchema }
     ]),
-    MongooseModule.forFeatureAsync([
-      {
-        name: 'UFC events',
-        useFactory: (configService: ConfigService) => ({
-          uri: configService.get<string>('MONGODB_URI'),
-          useNewUrlParser: true,
-          useUnifiedTopology: true
-        }),
-        inject: [ConfigService]
-      }
-    ])
+    MongooseModule.forRootAsync({
+      useFactory: (configService: ConfigService) => ({
+        uri: configService.get<string>('MONGODB_CONNECTION')
+      }),
+      inject: [ConfigService]
+    })
   ],
   providers: [
     {

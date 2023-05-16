@@ -3,12 +3,6 @@ import { Document } from 'mongoose';
 
 export type FighterDocument = Fighter & Document;
 
-type Record = {
-  wins: number;
-  draws: number;
-  losses: number;
-};
-
 @Schema()
 export class Fighter {
   @Prop({ required: true })
@@ -17,8 +11,19 @@ export class Fighter {
   @Prop({ required: true })
   public name: string;
 
-  @Prop({ required: true })
-  public record: Record;
+  @Prop({
+    required: true,
+    type: {
+      wins: { type: Number },
+      draws: { type: Number },
+      losses: { type: Number }
+    }
+  })
+  public record: {
+    wins: number;
+    draws: number;
+    losses: number;
+  };
 
   @Prop({ required: true })
   public gender: 'male' | 'female';
