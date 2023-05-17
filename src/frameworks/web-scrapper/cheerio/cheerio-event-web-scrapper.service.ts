@@ -3,10 +3,10 @@ import { Injectable } from '@nestjs/common';
 import * as cheerio from 'cheerio';
 import { lastValueFrom, of, switchMap } from 'rxjs';
 import { appConfig } from 'src/config';
-import { EventWebScrapperService } from 'src/core/abstracts/web-scrapper';
+import { EventUrlsWebScrapperService } from 'src/core/abstracts/web-scrapper';
 
 @Injectable()
-export class CheerioEventWebScrapperService extends EventWebScrapperService {
+export class CheerioEventUrlsWebScrapperService extends EventUrlsWebScrapperService {
   constructor(private httpService: HttpService) {
     super();
   }
@@ -42,8 +42,6 @@ export class CheerioEventWebScrapperService extends EventWebScrapperService {
     $('tr[itemtype="http://schema.org/Event"] a[itemprop="url"]').each(
       (_, element) => {
         const eventURL = $(element).attr('href');
-
-        console.log(eventURL);
 
         eventURLs.push(eventURL);
       }

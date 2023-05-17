@@ -15,4 +15,8 @@ export class Event {
 
   @Expose()
   public sherdogUrl: string;
+
+  constructor(event: Partial<Event> = {}) {
+    Object.assign(this, event);
+  }
 }
