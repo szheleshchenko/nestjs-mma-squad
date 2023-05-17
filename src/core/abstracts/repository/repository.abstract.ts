@@ -5,6 +5,8 @@ export abstract class Repository<T> {
 
   public abstract create(item: T): Promise<T>;
 
+  public abstract createMany(items: Array<T>): Promise<unknown>;
+
   public abstract update(id: string, item: T): Promise<T>;
 
   public abstract delete(id: string): Promise<T>;

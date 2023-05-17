@@ -5,16 +5,16 @@ export type EventDocument = Event & Document;
 
 @Schema()
 export class Event {
-  @Prop({ required: true })
+  @Prop()
   public id: number;
 
-  @Prop({ required: true })
+  @Prop()
   public name: string;
 
-  @Prop({ required: true })
+  @Prop()
   public date: string;
 
-  @Prop({ required: true })
+  @Prop()
   public venue: string;
 
   @Prop({ required: true })
