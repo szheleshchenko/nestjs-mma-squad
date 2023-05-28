@@ -11,6 +11,7 @@ export class MongoRepository<T> implements Repository<T> {
   public get(id: string): Promise<T> {
     return this.repository.findById(id).exec();
   }
+
   public create(item: T): Promise<T> {
     return this.repository.create(item);
   }

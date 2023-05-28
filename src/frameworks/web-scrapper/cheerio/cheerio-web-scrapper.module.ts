@@ -19,6 +19,6 @@ import { CheerioFighterWebScrapperService } from './cheerio-fighter-web-scrapper
     }
   ],
   imports: [HttpModule],
-  exports: [FighterWebScrapperService, CheerioEventUrlsWebScrapperService]
+  exports: [FighterWebScrapperService, EventUrlsWebScrapperService]
 })
 export class CheerioWebScrapperModule {}
